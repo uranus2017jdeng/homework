@@ -1,4 +1,4 @@
-ERROR 2018-06-26 09:50:48,939 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /admin/login/
+ERROR 2018-06-26 15:04:55,349 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py exception.py exception handle_uncaught_exception 118: Internal Server Error: /admin/login/
 Traceback (most recent call last):
   File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
     return self.cursor.execute(sql, params)
@@ -122,4 +122,4 @@ Traceback (most recent call last):
   File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
     raise errorclass(errno, errval)
 django.db.utils.ProgrammingError: (1146, "Table 'homework.auth_user' doesn't exist")
-ERROR 2018-06-26 09:50:49,100 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /admin/login/?next=/admin/ HTTP/1.1" 500 302095
+ERROR 2018-06-26 15:04:55,528 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/django/core/servers/basehttp.py basehttp.py basehttp log_message 124: "POST /admin/login/?next=/admin/ HTTP/1.1" 500 302097
