@@ -15,13 +15,10 @@ Including another URLconf
 """
 
 from django.conf.urls import url, include
-from django.contrib import admin
-from django.urls import path
-from cmdb import urls as cmdburls
-from django.views.generic import TemplateView
+from . import views
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    url('^cmdb/', include(cmdburls, namespace=None)),
-    url(r'^$', TemplateView.as_view(template_name="index.html")),
+    url(r'^add_computer_resource$', views.add_computer_resource),
+    url(r'^show_List', views.show_List),
 ]
 
