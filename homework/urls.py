@@ -18,10 +18,12 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.urls import path
 from cmdb import urls as cmdburls
+from console import urls as consoleurls
 from django.views.generic import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url('^cmdb/', include(cmdburls, namespace=None)),
+    url('^cmdb/', include(cmdburls)),
     url(r'^$', TemplateView.as_view(template_name="index.html")),
+    url('^console/', include(consoleurls)),
 ]
 
