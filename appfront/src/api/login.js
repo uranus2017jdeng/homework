@@ -27,3 +27,11 @@ export function getUserInfo(token) {
   })
 }
 
+export function getUserInfoByUsername(username) {
+  return request({
+    url: '/user/getinfobyname',
+    method: 'get',
+    params: { username }
+  })
+}
+

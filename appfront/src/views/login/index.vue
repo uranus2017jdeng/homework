@@ -9,7 +9,7 @@
         <span class="svg-container svg-container_login">
           <svg-icon icon-class="user" />
         </span>
-        <el-input name="username" type="text" v-model="loginForm.username" autoComplete="on" placeholder="username" />
+        <el-input name="username" type="text" v-model.trim="loginForm.username" autoComplete="on" placeholder="username" />
       </el-form-item>
 
       <el-form-item prop="password">
@@ -48,7 +48,6 @@
 </template>
 
 <script>
-import { isvalidUsername } from '@/utils/validate'
 import LangSelect from '@/components/LangSelect'
 import SocialSign from './socialsignin'
 
@@ -57,11 +56,22 @@ export default {
   name: 'login',
   data() {
     const validateUsername = (rule, value, callback) => {
+      // 改成动态查询用户列表
+      this.$store.dispatch('GetUserInfoByUsername', value).then(res => {
+        if (!res.data) {
+          callback(new Error('Please enter the correct user name'))
+        } else {
+          callback()
+        }
+      }).catch(() => {
+        callback()
+      })
+      /* 原版为静态用户列表
       if (!isvalidUsername(value)) {
         callback(new Error('Please enter the correct user name'))
       } else {
         callback()
-      }
+      } */
     }
     const validatePassword = (rule, value, callback) => {
       if (value.length < 6) {

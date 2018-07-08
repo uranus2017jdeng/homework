@@ -30,5 +30,13 @@ export default {
       return false
     }
   },
+  getUserInfoByUsername: config => {
+    const { username } = param2Obj(config.url)
+    if (userMap[username]) {
+      return userMap[username]
+    } else {
+      return false
+    }
+  },
   logout: () => 'success'
 }

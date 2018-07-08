@@ -12,6 +12,7 @@ import transactionAPI from './transaction'
 Mock.mock(/\/login\/login/, 'post', loginAPI.loginByUsername)
 Mock.mock(/\/login\/logout/, 'post', loginAPI.logout)
 Mock.mock(/\/user\/info\.*/, 'get', loginAPI.getUserInfo)
+Mock.mock(/\/user\/getinfobyname\.*/, 'get', loginAPI.getUserInfoByUsername)
 
 // 文章相关
 Mock.mock(/\/article\/list/, 'get', articleAPI.getList)

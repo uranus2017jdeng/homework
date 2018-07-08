@@ -1,4 +1,4 @@
-import { loginByUsername, logout, getUserInfo } from '@/api/login'
+import { loginByUsername, logout, getUserInfo, getUserInfoByUsername } from '@/api/login'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 
 const user = {
@@ -44,6 +44,26 @@ const user = {
   },
 
   actions: {
+    // 通过用户名查询用户信息
+    GetUserInfoByUsername({ commit, state }, username) {
+      return new Promise((resolve, reject) => {
+        getUserInfoByUsername(username).then(response => {
+          const data = response.data
+          console.log(data)
+          if (response.data && response.data.name !== '') {
+            commit('SET_NAME', data.name)
+            commit('SET_AVATAR', data.avatar)
+            commit('SET_INTRODUCTION', data.introduction)
+            resolve(response)
+          } else {
+            resolve(response)
+          }
+        }).catch(error => {
+          reject(error)
+        })
+      })
+    },
+
     // 用户名登录
     LoginByUsername({ commit }, userInfo) {
       const username = userInfo.username.trim()
