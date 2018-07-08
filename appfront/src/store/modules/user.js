@@ -53,11 +53,8 @@ const user = {
           if (response.data && response.data.name !== '') {
             commit('SET_NAME', data.name)
             commit('SET_AVATAR', data.avatar)
-            commit('SET_INTRODUCTION', data.introduction)
-            resolve(response)
-          } else {
-            resolve(response)
           }
+          resolve(response)
         }).catch(error => {
           reject(error)
         })
